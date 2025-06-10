@@ -1,0 +1,80 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "Image",
+                    "url": "https://gxaidevbotav.blob.core.windows.net/dalle-images/080661af-27fa-47f4-b99f-bc2cc93c6edf.png?sp=r&st=2024-07-06T05:15:37Z&se=2024-07-27T13:15:37Z&sv=2022-11-02&sr=b&sig=LyB%2FGVHi6fCHtQjNS6VQwDiAJZbWLRNW7LKVjCR3I7k%3D"
+                },
+                {
+                    "type": "Input.Text",
+                    "value": "",
+                    "id": "prompt-input",
+                    "inlineAction": {
+                        "submit": "update_prompt",
+                        "type": "Action.Submit",
+                        "title": "Update Prompt"
+                    },
+                    "isRequired": true,
+                    "errorMessage": "Input prompt is required"
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABS0lEQVR4nN1Uy07DMBCMQPT3QEDKtfEuvfD4AiBXSrlSxJl2FyG4hh/oN0ChlFt7j8rdaFPCQ3Hi4IQDjLSSZdk73tn1eN6/hu9fN1rAWwqYAqSRQn6VSNaLvaaccUqutgcbCnmikHVhAD0D8PpPXr2skE+tifF7BEjdMAyX7C93SK4+o1NGFl0p1GAtT5qG6Jl3cXf/Vs9msZ5OY72zd5MvFdCLsfHJtBS87DCMdIqDo6iwCoArP0MQALGt/N75UJ/1hvaGA/Wz+gM/VdYfPyZqZKpgbruYokQF818lUMixieCxNgLgB1MPqMYKLrMVIDVr6wHSZoag3b5YCZDGRReju/skLASTXIcVV6w6oi3kVWPyL1J1necf6NizQSw3ADpxIOiUsusU4oq2nrw3dGyVJQ/SeDEu8RaZbfmMyYdcrPsyLXLGKfmfwRtSxTme/Sg7gAAAAABJRU5ErkJggg==",
+                                    "altText": "svgImg",
+                                    "horizontalAlignment": "Center",
+                                    "spacing": "None",
+                                    "width": "24px",
+                                    "height": "24px"
+                                }
+                            ],
+                            "horizontalAlignment": "Center",
+                            "spacing": "None",
+                            "minHeight": "24px",
+                            "verticalContentAlignment": "Center",
+                            "rtl": false
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "The generated images are available for download for one month before being automatically deleted.",
+                                    "spacing": "Small",
+                                    "horizontalAlignment": "Left",
+                                    "height": "stretch",
+                                    "wrap": true,
+                                    "fontType": "Default",
+                                    "size": "Small",
+                                    "color": "Accent",
+                                    "id": "download-notice",
+                                    "weight": "Default"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Download",
+            "url": "https://gxaidevbotav.blob.core.windows.net/dalle-images/080661af-27fa-47f4-b99f-bc2cc93c6edf.png?sp=r&st=2024-07-06T05:15:37Z&se=2024-07-27T13:15:37Z&sv=2022-11-02&sr=b&sig=LyB%2FGVHi6fCHtQjNS6VQwDiAJZbWLRNW7LKVjCR3I7k%3D",
+            "style": "positive"
+        }
+    ]
+}

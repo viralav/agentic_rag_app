@@ -1,0 +1,25 @@
+{
+    "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "msteams": {
+      "width": "full"
+    },
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "Welcome! Features and Use Cases of gChat",
+        "size": "large",
+        "weight": "bolder",
+        "wrap": true
+      },
+      {
+        "type": "TextBlock",
+        "title": "Welcome! Features and Use Cases of gChat",
+        "text": "As a chatbot, I can assist in various situations, such as:\n\n* Answering general questions (e.g., \"**What was Company AG's revenue in 2021?**\")\n* Translating words and texts (e.g., \"**Translate to English: Example text in German**\")\n* Generating code\n\nYou can also invite me to groups and channels and ask questions on various topics. Once the group initiator has added me and asked the first question, simply type **@gChat** and you're ready to go!\n\nFeel free to send feedback and suggestions for use to our Company IT 😊",
+        "wrap": true,
+        "label": "Confirmation"
+      }
+    ]
+  }
+  

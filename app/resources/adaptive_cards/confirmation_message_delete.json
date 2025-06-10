@@ -1,0 +1,27 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "msteams": {
+      "width": "full"
+    },
+    "version": "1.3",
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "You have successfully deleted all your GPT bot data in our database. Please delete the chat history in MS Teams. Here is a link to help you:",
+        "width": "full",
+        "wrap": true
+      },
+      {
+        "type": "ActionSet",
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "How to delete chat history in MS Teams",
+            "url": "https://support.microsoft.com/en-us/office/delete-a-chat-thread-in-microsoft-teams-6d2358d2-8d5b-48d3-b529-c685574f579d"
+          }
+        ]
+      }
+    ]
+  }
+  

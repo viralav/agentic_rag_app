@@ -1,0 +1,43 @@
+{
+  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.6",
+  "msteams": {
+    "width": "full"
+  },
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Disclaimer",  
+      "size": "large",       
+      "weight": "bolder",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "title": "Disclaimer",
+      "text": "🤖 Please note that this chatbot is an online service in the field of artificial intelligence.\n\nWe are currently in the testing phase of this product, and changes and functional adjustments are possible at any time.\n\nDo not share the link to this chat with others, as this may have legal and compliance-related implications.\n\nPlease only provide the essential data necessary for processing your request.\n\nDo not use:\n\npersonal data (i.e., no data about natural persons who are employed by customers, external partners, or Company)\ninternal company information (figures, projects, contracts, etc.)\ntrade secrets and confidential information (e.g., marketing or analysis data from customers)\n\nDisregarding these regulations can have labor law and criminal consequences.\n\nBy clicking the '**„Agree“**' button, you declare that you have read the above and the privacy policy and agree to comply with them.",
+      "wrap": true,
+      "label": "Confirmation"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Accept",
+      "submit": "confirm_accept",
+      "data": {
+        "action": "confirm_accept"
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Decline",
+      "submit": "confirm_decline",
+      "data": {
+        "action": "confirm_decline"
+      }
+    }
+  ]
+}
+

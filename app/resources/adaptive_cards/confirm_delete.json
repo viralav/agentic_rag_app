@@ -1,0 +1,30 @@
+{
+    "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "Are you sure you want to delete all messages?",
+        "wrap": "True",
+        "label": "Confirmation"
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.Submit",
+        "title": "Confirm",
+        "data": {
+          "action": "confirm_delete"
+        }
+      },
+      {
+        "type": "Action.Submit",
+        "title": "Cancel",
+        "data": {
+          "action": "cancel_delete"
+        }
+      }
+    ]
+  }
+  

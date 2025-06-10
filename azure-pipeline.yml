@@ -1,0 +1,68 @@
+trigger:
+  branches:
+    include:
+      - master
+      - development
+
+pr:
+  branches:
+    include:
+      - master
+      - development
+variables:
+- ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+  - group: tf-kv-prod
+  - group: tf-vars-prod
+- ${{ if eq(variables['Build.SourceBranchName'], 'development') }}:
+  - group: tf-vars-dev
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.11'
+    addToPath: true
+  displayName: 'Set up Python 3.11'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    python -m unittest discover
+  displayName: 'Run unit tests'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  displayName: 'Archive files'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+  displayName: 'Publish build artifacts'
+
+
+- task: AzureCLI@2
+  displayName: 'Deploy Web App via CLI'
+  inputs:
+    azureSubscription: $(SC_NAME)
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az webapp deploy \
+        --subscription $(TF_VAR_subscription_id) \
+        --resource-group $(RG_NAME) \
+        --name $(WEBAPP_NAME) \
+        --src-path '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' \
+        --type zip \
+        --restart true
